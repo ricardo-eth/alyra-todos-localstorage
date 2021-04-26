@@ -34,7 +34,7 @@ const initialTodos = [
 
 const Todos = () => {
   const getInitialTodo = () =>
-    JSON.parse(window.localStorage.getItem("my-todo-list"));
+    JSON.parse(window.localStorage.getItem("my-todo-list")) || initialTodos;
 
   const [todos, setTodos] = useState(getInitialTodo);
   const [filter, setFilter] = useState("all");
