@@ -1,4 +1,4 @@
-import Todos from "./components/Todos"
+import Todos from "./components/Todos";
 
 function App() {
   return (
@@ -6,7 +6,7 @@ function App() {
       <h1 className="text-center">ToDos App</h1>
       <Todos />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

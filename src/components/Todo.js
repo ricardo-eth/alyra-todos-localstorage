@@ -1,8 +1,9 @@
 const Todo = (props) => {
-  const { todo, deleteTodo, toggleCompleteTodo } = props
+  const { todo, deleteTodo, toggleCompleteTodo } = props;
   const style = {
-    textDecoration: todo.isCompleted ? "line-through" : "none"
-  }
+    textDecoration: todo.isCompleted ? "line-through" : "none",
+  };
+
   return (
     <div className="shadow-sm border p-2 d-flex align-items-center justify-content-between mb-2">
       <span style={style}>{todo.text}</span>
@@ -33,7 +34,7 @@ const Todo = (props) => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Todo
+export default Todo;
