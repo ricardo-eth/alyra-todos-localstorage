@@ -52,18 +52,6 @@ const Todos = () => {
     setTodos(todos.filter((el) => el.id !== task.id));
   };
 
-  useEffect(() => {
-    document.title = todos.length
-      ? `Vous avez ${todos.length} tâches à accomplir !`
-      : "Que devez vous faire aujourd'hui ";
-  }, [todos.length]);
-
-  useEffect(() => {
-    window.localStorage.setItem("my-todo-list", JSON.stringify(todos));
-  }, [todos]);
-
-  console.log(todos);
-
   const toggleCompleteTodo = (task) => {
     setTodos(
       todos.map((el) => {
@@ -89,6 +77,18 @@ const Todos = () => {
   });
 
   const completedCount = todos.filter((el) => el.isCompleted).length;
+
+  useEffect(() => {
+    document.title =
+      completedCount === todos.length
+        ? "Que devez vous faire aujourd'hui "
+        : `Vous avez ${todos.length - completedCount} tâches à accomplir !`;
+  }, [todos, completedCount]);
+
+  useEffect(() => {
+    window.localStorage.setItem("my-todo-list", JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <main>
       <h2 className="text-center">
